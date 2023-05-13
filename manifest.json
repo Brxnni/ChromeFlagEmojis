@@ -4,8 +4,15 @@
 	"description": "Replaces Unicode Regional Indicators with images of actual flags.",
 	"version": "0.1",
 
+	"permissions": [
+		"storage"
+	],
+
 	"content_scripts": [{
 		"js": ["content.js"],
 		"matches": ["<all_urls>"]
-	}]
+	}],
+	"background": {
+		"service_worker": "background.js"
+	}
 }

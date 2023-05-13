@@ -1,0 +1,18 @@
+<script>
+
+	let span;
+	document.addEventListener("DOMContentLoaded", async function(){
+		span = document.getElementById("emoji");
+	});
+
+	let emojis = ["🇩🇪", "🇫🇷", "🇦🇹", "🇨🇭"];
+
+	function newRandomEmoji(){
+		span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+	}
+
+</script>
+
+<p>hi! im from <span id="emoji">🇦🇩</span>.</p>
+
+<button onclick="newRandomEmoji()">New Random Emoji pls</button>

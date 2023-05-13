@@ -5,5 +5,6 @@ Chrome Extension that replaces Unicode Regional Indicators with images of actual
 ## TODO
 
 * Add Icons
-* Add the actual extension code
+* ~~Add the actual extension code~~
 * Add Popup HTML
+* Add alt text to img
