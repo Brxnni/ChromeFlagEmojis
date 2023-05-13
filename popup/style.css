@@ -1,0 +1,10 @@
+body {
+	padding: 0.5em 2em 0.5em 1em;
+	width: 300px;
+	font-family: "Cambria", "Courier New", Courier, monospace;
+	font-size: 1.1rem;
+}
+
+section {
+	margin: 10px 0;
+}
