@@ -95,7 +95,6 @@ let storage;
 	// If any node in the page ever changes, search everything in that node again
 	let obv = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-			console.log(mutation.type);
 			if (
 				mutation.type === "childList" ||
 				mutation.type === "characterData"
