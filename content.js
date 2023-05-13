@@ -42,6 +42,7 @@ function riToImg(text, settings){
 			height: ${size};
 			margin: ${margin};
 			vertical-align: bottom;
+			image-rendering: pixelated;
 		"
 	/>`.replaceAll(/[\t\n]+/g, " ");
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
