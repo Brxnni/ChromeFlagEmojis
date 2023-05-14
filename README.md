@@ -8,4 +8,4 @@ Chrome Extension that replaces Unicode Regional Indicators with images of actual
 * ~~Add the actual extension code~~
 * ~~Add Popup HTML~~
 * Make Popup HTML look a little nicer
-* Add alt text to img
+* ~~Add alt text to img~~
