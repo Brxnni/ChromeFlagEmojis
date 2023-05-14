@@ -1,4 +1,4 @@
-const codeToName = {
+const flagCodeToName = {
 	"🇦🇨":"ascension-island",
 	"🇦🇩":"andorra",
 	"🇦🇪":"united-arab-emirates",
@@ -259,14 +259,14 @@ const codeToName = {
 	"🇿🇼":"zimbabwe"
 }
 
-const styles = {
-	"apple": "apple/354",
-	"google": "google/350",
-	"samsung": "samsung/349",
-	"whatsapp": "whatsapp/352",
-	"twitter": "twitter/322",
-	"facebook": "facebook/355",
-	"openmoji": "openmoji/338"
+const urlNums = {
+	"apple": "354",
+	"google": "350",
+	"samsung": "349",
+	"whatsapp": "352",
+	"twitter": "322",
+	"facebook": "355",
+	"openmoji": "338"
 }
 
 function utf16ToUtf32(utf16Chars){
@@ -282,23 +282,18 @@ function utf16ToUtf32(utf16Chars){
 // Convert Regional Indicator Chars to inline HTML of an <img>.
 function riToImg(text, settings){
 
-	let name = codeToName[text];
+	let flagName = flagCodeToName[text];
 	// Js uses UTF16 because it is stupid, so convert the 4 chars (2 per Regional Indicator) to 2 in UTF32
-	let c1 = utf16ToUtf32(text.slice(0, 2));
-	let c2 = utf16ToUtf32(text.slice(2, 4));
+	let char1 = (utf16ToUtf32(text.slice(0, 2))).toString(16);
+	let char2 = (utf16ToUtf32(text.slice(2, 4))).toString(16);
 
-	let src;
+	let imgSrc;
 	let {style, size, margin} = settings;
-	src = `https://em-content.zobj.net/thumbs/120/${styles[style]}/flag-${name}_${c1.toString(16)}-${c2.toString(16)}.png`;
+	imgSrc = `https://em-content.zobj.net/thumbs/120/${style}/${urlNums[style]}/flag-${flagName}_${char1}-${char2}.png`;
 	
-	// 	// Convert to latin characters (RI becomes -> "d" and "e")
-	// 	// "a" = 97, "🇦" = 127462, diff = 127365
-	// 	src = `https://flagcdn.com/${String.fromCharCode(c1 - 127365)}${String.fromCharCode(c2 - 127365)}.svg`;
-
-	// style="width: ${settings.size}; height: ${settings.size}"
 	return `<img
-		src="${src}"
-		alt="flag of ${name}"
+		src="${imgSrc}"
+		alt="flag of ${flagName}"
 		style="
 			height: ${size};
 			margin: ${margin};
@@ -311,9 +306,7 @@ function riToImg(text, settings){
 }
 
 function replaceNode(node){
-	let newText = node.textContent.replaceAll(RIRegex, (match) => {
-		return riToImg(match, storage);
-	});
+	let newText = node.textContent.replaceAll(RIRegex, (match) => riToImg(match, storage) );
 
 	if (node.textContent !== newText){
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
