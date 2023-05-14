@@ -150,7 +150,7 @@ const codeToName = {
 	"🇲🇭":"marshall-islands",
 	"🇲🇰":"north-macedonia",
 	"🇲🇱":"mali",
-	"🇲🇲":"myanmar-burma-",
+	"🇲🇲":"myanmar-burma",
 	"🇲🇳":"mongolia",
 	"🇲🇴":"macao-sar-china",
 	"🇲🇵":"northern-mariana-islands",
@@ -298,7 +298,7 @@ function riToImg(text, settings){
 	// style="width: ${settings.size}; height: ${settings.size}"
 	return `<img
 		src="${src}"
-		alt="flag of ${styles[style]}"
+		alt="flag of ${name}"
 		style="
 			height: ${size};
 			margin: ${margin};
