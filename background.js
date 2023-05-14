@@ -2,16 +2,8 @@
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({
 		// These don't do anything yet
-		size: "1em",
-		margin: "0.1em",
+		size: "1.2em",
+		margin: "0 0.2em 0.2em 0.15em",
 		style: "twitter"
 	})
-});
-
-// Is called when new tab is opened or switched to
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-	// Is tab fully loaded?
-	if (changeInfo.status === "complete"){
-		// Execute the content.js script here
-	}
 });
