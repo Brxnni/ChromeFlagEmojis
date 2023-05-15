@@ -20,6 +20,9 @@ async function readStorage(){
 	sizeInput.value = storage.size;
 	marginInput.value = storage.margin;
 	styleInput.value = storage.style;
+}
+
+function updatePreview(){
 	previewImg.style.width = sizeInput.value;
 	previewImg.style.margin = marginInput.value;
 	previewImg.setAttribute("src", `https://em-content.zobj.net/thumbs/120/${styleInput.value}/${urlNums[styleInput.value]}/flag-germany_1f1e9-1f1ea.png`);
@@ -28,16 +31,22 @@ async function readStorage(){
 sizeInput.addEventListener("input", () => {
 	chrome.storage.sync.set({ size: sizeInput.value });
 	readStorage();
+	updatePreview();
 });
 
 marginInput.addEventListener("input", () => {
 	chrome.storage.sync.set({ margin: marginInput.value });
 	readStorage();
+	updatePreview();
 });
 
 styleInput.addEventListener("input", () => {
 	chrome.storage.sync.set({ style: styleInput.value });
 	readStorage();
+	updatePreview();
 });
 
-readStorage();
+(async function(){
+	await readStorage();
+	updatePreview();
+})();
