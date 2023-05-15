@@ -1,8 +1,17 @@
+@import url(./../content.css);
+
+:root {
+	--bg-color-1: #561328;
+	--bg-color-2: #3d0e1d;
+}
+
 body {
 	padding: 0.75em 2em 0.75em 1em;
 	width: 300px;
 	font-family: "Cambria", "Courier New", Courier, monospace;
 	font-size: 1.1rem;
+	background-color: var(--bg-color-1);
+	color: white;
 }
 
 section {
@@ -13,4 +22,40 @@ h1,
 h2,
 ul {
 	margin: 0;
+}
+
+img.inline {
+	vertical-align: bottom;
+	height: 1.2em;
+	width: auto;
+	margin: 0 0.25em 0 0.1em;
+	
+	filter: drop-shadow(0px 0px 7px black);
+}
+
+span.tooltip {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	cursor: help;
+}
+
+select,
+input[type="text"] {
+	display: block;
+	margin: 0.2em 0 0.35em 0;
+	padding: 0.2em 0.3em;
+
+	font: inherit;
+	
+	color: inherit;
+	background-color: var(--bg-color-2);
+	
+	border: 1px solid white;
+	border-radius: 3px;
+}
+
+select:focus,
+input[type="text"]:focus {
+	outline: none;
+	/* border-width: 2px; */
 }

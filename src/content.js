@@ -294,11 +294,10 @@ function riToImg(text, settings){
 	return `<img
 		src="${imgSrc}"
 		alt="flag of ${flagName}"
+		class="chromeemojiflags"
 		style="
 			height: ${size};
 			margin: ${margin};
-			vertical-align: bottom;
-			-webkit-user-drag: none;
 		"
 	/>`.replaceAll(/[\t\n]+/g, " ");
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner

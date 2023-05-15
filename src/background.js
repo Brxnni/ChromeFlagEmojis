@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.sync.set({
 		// These don't do anything yet
 		size: "1.2em",
-		margin: "0 0.2em 0.2em 0.15em",
+		margin: "0 0.2em 0 0.15em",
 		style: "twitter"
 	})
 });

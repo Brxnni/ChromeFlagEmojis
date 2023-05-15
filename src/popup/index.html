@@ -9,35 +9,41 @@
 </head>
 <body>
 	
-	<h1>FlagEmojis</h1>
-	<p>Replaces Unicode Regional Indicators with images of actual flags. (because Microsoft)</p>
+	<h1> <img class="inline" src="./../icon_128.png"/> FlagEmojis</h1>
+	<p>Replaces Unicode Regional Indicators with images of actual flags. (because Microsoft won't do it)</p>
 
 	<hr>
 	
 	<h2>Settings</h2>
 
 	<section>
-		<label for="size">Size (CSS)</label>
+		<label for="size">Size: <span title="You can enter any valid CSS value here!&#010;For example:&#010;  7px&#010;  0.5em&#010;  2px 3px 4px 5px (for top, right, bottom and left respectively)" class="tooltip">(CSS)</span></label>
 		<input type="text" name="size" id="size" placeholder="0.7em">
 	</section>
 
 	<section>
-		<label for="margin">Margin (CSS)</label>
+		<label for="margin">Margin: (CSS)</span></label>
 		<input type="text" name="margin" id="margin" placeholder="10px 5px 7px 10px">
 	</section>
 
 	<section>
-		<label for="style">Select Style</label>
+		<label for="style">Select Style:</label>
 		<select name="style" id="style">
-			<option value="apple">Apple</option>
-			<option value="google">Google</option>
-			<option value="samsung">Samsung</option>
-			<option value="whatsapp">WhatsApp</option>
-			<option value="twitter">Twitter</option>
-			<option value="facebook">Facebook</option>
-			<option value="openmoji">OpenMoji</option>
+			<option value="apple">		Apple		</option>
+			<option value="google">		Google		</option>
+			<option value="samsung">	Samsung		</option>
+			<option value="whatsapp">	WhatsApp	</option>
+			<option value="twitter">	Twitter		</option>
+			<option value="facebook">	Facebook	</option>
+			<option value="openmoji">	OpenMoji	</option>
 		</select>
 	</section>
+
+	<hr>
+
+	<h2>Preview</h2>
+
+	<p>Lorem ipsum dolor sit amet <img id="preview" class="chromeemojiflags" /> consectetur adipisicing elit. </p>
 
 	<hr>
 
