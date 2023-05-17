@@ -294,7 +294,7 @@ function riToImg(text, settings){
 	return `<img
 		src="${imgSrc}"
 		alt="flag of ${flagName}"
-		class="chromeemojiflags"
+		class="chromeext-emojiflags"
 		style="
 			height: ${size};
 			margin: ${margin};
