@@ -11,6 +11,10 @@ Looks good with all fonts and font sizes:
 
 Style (Twitter/Apple etc.), Size and Position of Flags can be changed.
 
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/0478dd8f-c60f-4365-af6d-5721698d6586)
+
+lmao
+
 ## TODO
 
 * Fix bug where flags don't work in Youtube titles (except sometimes when they work?)
