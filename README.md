@@ -1,6 +1,11 @@
 # ChromeFlagEmojis
 
 Chrome Extension that replaces Unicode Regional Indicators with images of actual flags.
+Looks like this:
+
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/5faa91de-edc3-4a45-a6dd-a0cb45376f24)
+
+Style (Twitter/Apple etc.), Size and Position of Flags can be changed.
 
 ## TODO
 
