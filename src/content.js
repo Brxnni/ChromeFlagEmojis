@@ -1,11 +1,11 @@
-function utf16ToUtf32(utf16Chars){
+function utf16ToUtf32Hex(utf16Chars){
 	// Takes to characters in Utf16 and converts them to the hex representation in Utf32
 	let highSurrogate = (utf16Chars.charCodeAt(0));
 	let lowSurrogate = (utf16Chars.charCodeAt(1));
 
 	// https://en.wikipedia.org/wiki/UTF-16
 	let final = ((highSurrogate - 0xD800) * 0x400) + (lowSurrogate - 0xDC00) + 0x10000;
-	return final;
+	return final.toString(16);
 }
 
 // Convert Regional Indicator Chars to inline HTML of an <img>.
@@ -13,8 +13,8 @@ function riToImg(text, settings){
 
 	let flagName = globalThis.flagNames[text];
 	// Js uses UTF16 because it is stupid, so convert the 4 chars (2 per Regional Indicator) to 2 in UTF32
-	let char1 = (utf16ToUtf32(text.slice(0, 2))).toString(16);
-	let char2 = (utf16ToUtf32(text.slice(2, 4))).toString(16);
+	let char1 = utf16ToUtf32Hex(text.slice(0, 2));
+	let char2 = utf16ToUtf32Hex(text.slice(2, 4));
 
 	let imgSrc;
 	let {style, size, margin} = settings;
@@ -36,13 +36,12 @@ function riToImg(text, settings){
 
 function replaceNode(node){
 	let newText = node.textContent.replaceAll(RIRegex, (match) => riToImg(match, storage) );
-
+	
 	if (node.textContent !== newText){
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;
 		node.replaceWith(div);
-		div.outerHTML = div.innerHTML;
 	}
 }
 
