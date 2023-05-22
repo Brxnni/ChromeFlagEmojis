@@ -257,7 +257,11 @@ globalThis.flagNames = {
 	"🇾🇹": { fullName: "Mayotte", shortName: "mayotte" },
 	"🇿🇦": { fullName: "South Africa", shortName: "south-africa" },
 	"🇿🇲": { fullName: "Zambia", shortName: "zambia" },
-	"🇿🇼": { fullName: "Zimbabwe", shortName: "zimbabwe" }
+	"🇿🇼": { fullName: "Zimbabwe", shortName: "zimbabwe" },
+
+	"🏴󠁧󠁢󠁥󠁮󠁧󠁿": { fullName: "England", shortName: "england" },
+	"🏴󠁧󠁢󠁳󠁣󠁴󠁿": { fullName: "Scotland", shortName: "scotland" },
+	"🏴󠁧󠁢󠁷󠁬󠁳󠁿": { fullName: "Wales", shortName: "wales" }
 };
 
 globalThis.urlNumbers = {
@@ -269,3 +273,5 @@ globalThis.urlNumbers = {
 	"facebook": "355",
 	"openmoji": "338"
 };
+
+globalThis.flagEmojiRegex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g;

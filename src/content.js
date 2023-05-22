@@ -35,7 +35,7 @@ function riToImg(text, settings){
 }
 
 function replaceNode(node){
-	let newText = node.textContent.replaceAll(RIRegex, (match) => riToImg(match, storage) );
+	let newText = node.textContent.replaceAll(globalThis.flagEmojiRegex, (match) => riToImg(match, storage) );
 	
 	if (node.textContent !== newText){
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
@@ -61,7 +61,6 @@ function replaceRIsRecursively(element){
 	}
 }
 
-const RIRegex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g;
 let storage;
 
 (async function(){
