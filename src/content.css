@@ -1,4 +1,5 @@
 img.chromeext-emojiflags {
+	display: inline;
 	vertical-align: -15%;
 	-webkit-user-drag: none;
 }
