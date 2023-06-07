@@ -1,9 +1,16 @@
 # ChromeFlagEmojis
 
 Chrome Extension that replaces Unicode Regional Indicators with images of actual flags.
+
+## Preview
+
 Looks like this:
 
 ![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/5faa91de-edc3-4a45-a6dd-a0cb45376f24)
+
+Instead of this:
+
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/750ec6fa-377c-4922-b38a-ca71ee6a7b28)
 
 Looks good with all fonts and font sizes:
 
@@ -11,9 +18,15 @@ Looks good with all fonts and font sizes:
 
 Style (Twitter/Apple etc.), Size and Position of Flags can be changed.
 
-![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/0478dd8f-c60f-4365-af6d-5721698d6586)
+Twitter: <img src="https://em-content.zobj.net/thumbs/120/twitter/322/flag-estonia_1f1ea-1f1ea.png" width="24" />
 
-lmao
+Apple: <img src="https://em-content.zobj.net/thumbs/120/apple/354/flag-estonia_1f1ea-1f1ea.png" width="24" />
+
+Google: <img src="https://em-content.zobj.net/thumbs/120/google/350/flag-estonia_1f1ea-1f1ea.png" width="24" />
+
+OpenMoji: <img src="https://em-content.zobj.net/thumbs/120/openmoji/338/flag-estonia_1f1ea-1f1ea.png" width="24" />
+
+And a couple more.
 
 ## TODO
 
