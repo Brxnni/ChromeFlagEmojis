@@ -10,16 +10,17 @@ function utf16ToUtf32Hex(utf16Chars){
 
 // Convert Regional Indicator Chars to inline HTML of an <img>.
 function riToImg(text, settings){
-
+	
 	let flagName = globalThis.flagNames[text];
-	// Js uses UTF16 because it is stupid, so convert the 4 chars (2 per Regional Indicator) to 2 in UTF32
-	let char1 = utf16ToUtf32Hex(text.slice(0, 2));
-	let char2 = utf16ToUtf32Hex(text.slice(2, 4));
+	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
+	let charPairs = text.match(/.{1,2}/g);
+	charPairs = charPairs.map(utf16ToUtf32Hex);
+	let chars = charPairs.join("-");
 
 	let imgSrc;
 	let {style, size, margin} = settings;
-	imgSrc = `https://em-content.zobj.net/thumbs/120/${style}/${globalThis.urlNumbers[style]}/flag-${flagName.shortName}_${char1}-${char2}.png`;
-	
+	imgSrc = `https://em-content.zobj.net/thumbs/120/${style}/${globalThis.urlNumbers[style]}/flag-${flagName.shortName}_${chars}.png`;
+
 	return `<img
 		src="${imgSrc}"
 		title="Flag of ${flagName.fullName}"
@@ -35,9 +36,9 @@ function riToImg(text, settings){
 }
 
 function replaceNode(node){
-	let newText = node.textContent.replaceAll(globalThis.flagEmojiRegex, (match) => riToImg(match, storage) );
-	
-	if (node.textContent !== newText){
+	if (node.textContent.match(globalThis.regexGeneralFlag)){
+		// Replace content
+		let newText = node.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => riToImg(match, storage) );
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;

@@ -33,7 +33,6 @@ And a couple more.
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
 * Deactivate the conversion in textfields (extension currently breaks the github code editor for example)
   * Could be detected by listening for keydown events and seeing if target is TEXTAREA or something like that -> Put it on the list of elements to ignore
-* Add subdivisions? (UK ones are the only ones supported by most vendors -> gotta satisfy the brexit geezas and their football teams)
 * Add On/Off button
 * Replace keys in `lib.js` with normal latin characters (convert capture group back from 127365 offset)
 * Add overview of all flags to `testPage.html`
