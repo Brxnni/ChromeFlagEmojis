@@ -266,8 +266,10 @@ globalThis.flagNames = {
 
 // Combine them all into one regex for faster comparison
 let regexes = [
+	// Flags consisting of two regional indicators (a-z)
 	//    [ * tag latin chars   ]
 		/([\uD83C][\uDDE6-\uDDFF]){2}/g,
+	// Subdivision flags
 	//   [  black flag  ] [ * tag latin chars   ]  [  cancel tag  ]
 		/[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g
 ];

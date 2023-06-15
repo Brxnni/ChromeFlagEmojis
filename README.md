@@ -37,4 +37,3 @@ And a couple more.
 * Add offline option
 * Reload images when the first load fails
 * Add other subdivions? There are a couple that only OpenMoji supports (California, Texas, Bretagne, Catalonia, Basque Country, Quebec, Berlin, Asturias)
-* CSS rules on websites changing <img> tags should probably be ignored (somehow)

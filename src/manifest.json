@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
 	"name": "FlagEmojis",
-	"description": "Replaces Unicode Regional Indicators with images of actual flags.",
-	"version": "0.3",
+	"description": "Replaces Unicode Regional Indicators with images of actual flags. [https://github.com/Brxnni/ChromeFlagEmojis]",
+	"version": "0.4",
 	"icons": {
 		"16": "img/icon_16.png",
 		"32": "img/icon_32.png",
