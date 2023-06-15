@@ -36,4 +36,4 @@ And a couple more.
 * Add On/Off button
 * Add offline option
 * Reload images when the first load fails
-* When you select the flag images and copy it should put the original unicode text in there
+* Add other subdivions? There are a couple that only OpenMoji supports (California, Texas, Bretagne, Catalonia, Basque Country, Quebec, Berlin, Asturias)
