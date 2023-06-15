@@ -35,3 +35,5 @@ And a couple more.
   * Could be detected by listeningn events and seeing if target is TEXTAREA or something like that -> Put it on the list of elements to ignore
 * Add On/Off button
 * Add offline option
+* Reload images when the first load fails
+* When you select the flag images and copy it should put the original unicode text in there

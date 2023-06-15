@@ -264,15 +264,14 @@ globalThis.flagNames = {
 	"1f3f4-e0067-e0062-e0077-e006c-e0073-e007f": { fullName: "Wales", shortName: "wales" }
 };
 
-// Capturing groups (*) for keys in dictionary above
-//                     [ * tag latin chars   ]
-let regex2CharFlag = /([\uD83C][\uDDE6-\uDDFF]){2}/g;
-//                     [  black flag  ] [ * tag latin chars   ]  [  cancel tag  ]
-let regexSubdivFlag = /[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g;
-
 // Combine them all into one regex for faster comparison
-let regexes = [ regex2CharFlag, regexSubdivFlag ];
-globalThis.regexGeneralFlag = new RegExp(regexes.map(r => r.source).join("|"), "g");
+let regexes = [
+	//    [ * tag latin chars   ]
+		/([\uD83C][\uDDE6-\uDDFF]){2}/g,
+	//   [  black flag  ] [ * tag latin chars   ]  [  cancel tag  ]
+		/[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g
+];
+globalThis.regexGeneralFlag = new RegExp(regexes.map(r => `(${r.source})`).join("|"), "g");
 
 globalThis.urlNumbers = {
 	"apple": "354",
