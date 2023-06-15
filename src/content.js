@@ -16,6 +16,9 @@ function riToImg(text, settings){
 	let chars = charPairs.join("-");
 	let flagName = globalThis.flagNames[chars];
 
+	// If flag is not supported, return original text so nothing changes
+	if (flagName === undefined) return text;
+
 	let imgSrc;
 	let {style, size, margin} = settings;
 	imgSrc = `https://em-content.zobj.net/thumbs/120/${style}/${globalThis.urlNumbers[style]}/flag-${flagName.shortName}_${chars}.png`;
@@ -26,12 +29,11 @@ function riToImg(text, settings){
 		alt="${text}"
 		class="chromeext-emojiflags"
 		style="
-			height: ${size};
-			margin: ${margin};
+			height: ${size} !important;
+			margin: ${margin} !important;
 		"
 	/>`.replaceAll(/[\t\n]+/g, " ");
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
-
 }
 
 function replaceNode(node){
