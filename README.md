@@ -15,7 +15,7 @@ Instead of this:
 Style Size and Position of Flags can be changed.
 
 Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
-![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/99a8e122-1cc2-41ce-a749-3a3c45fb5e6b)
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/c61de214-4209-46df-9327-951bcf60f147)
 
 ## TODO
 
