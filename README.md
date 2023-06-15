@@ -1,6 +1,6 @@
 # ChromeFlagEmojis
 
-Chrome Extension that replaces Unicode Regional Indicators with images of actual flags.
+Chrome Extension that replaces Unicode Regional Indicators with images of actual flags. (Note: Which Flags are included has nothing to do with any personal political opinions and is defined only by what the Unicode consortium recommends for [General Interchange](https://unicode.org/emoji/charts/emoji-zwj-sequences.html))
 
 ## Preview
 
@@ -37,3 +37,4 @@ And a couple more.
 * Add offline option
 * Reload images when the first load fails
 * Add other subdivions? There are a couple that only OpenMoji supports (California, Texas, Bretagne, Catalonia, Basque Country, Quebec, Berlin, Asturias)
+* CSS rules on websites changing <img> tags should probably be ignored (somehow)
