@@ -10,12 +10,11 @@ function utf16ToUtf32Hex(utf16Chars){
 
 // Convert Regional Indicator Chars to inline HTML of an <img>.
 function riToImg(text, settings){
-	
-	let flagName = globalThis.flagNames[text];
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
 	let charPairs = text.match(/.{1,2}/g);
 	charPairs = charPairs.map(utf16ToUtf32Hex);
 	let chars = charPairs.join("-");
+	let flagName = globalThis.flagNames[chars];
 
 	let imgSrc;
 	let {style, size, margin} = settings;
