@@ -2,9 +2,9 @@
 
 Chrome Extension that replaces Unicode Regional Indicators with images of actual flags. (Note: Which Flags are included has nothing to do with any personal political opinions and is defined only by what the Unicode consortium recommends for [General Interchange](https://unicode.org/emoji/charts/emoji-zwj-sequences.html))
 
-## Preview
+## Overview
 
-Looks like this:
+Makes flags in text look like this:
 
 ![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/5faa91de-edc3-4a45-a6dd-a0cb45376f24)
 
@@ -12,21 +12,10 @@ Instead of this:
 
 ![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/750ec6fa-377c-4922-b38a-ca71ee6a7b28)
 
-Looks good with all fonts and font sizes:
+Style Size and Position of Flags can be changed.
 
-![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/76ab97c4-ff56-4c8c-872b-feff4a1377f7)
-
-Style (Twitter/Apple etc.), Size and Position of Flags can be changed.
-
-Twitter: <img src="https://em-content.zobj.net/thumbs/120/twitter/322/flag-estonia_1f1ea-1f1ea.png" width="24" />
-
-Apple: <img src="https://em-content.zobj.net/thumbs/120/apple/354/flag-estonia_1f1ea-1f1ea.png" width="24" />
-
-Google: <img src="https://em-content.zobj.net/thumbs/120/google/350/flag-estonia_1f1ea-1f1ea.png" width="24" />
-
-OpenMoji: <img src="https://em-content.zobj.net/thumbs/120/openmoji/338/flag-estonia_1f1ea-1f1ea.png" width="24" />
-
-And a couple more.
+Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/99a8e122-1cc2-41ce-a749-3a3c45fb5e6b)
 
 ## TODO
 
