@@ -25,7 +25,7 @@ function riToImg(text, settings){
 	return `<img
 		src="${imgSrc}"
 		onerror="reloadImg(this)"
-		title="Flag of ${flagName.fullName}"
+		title="Flag of ${flagName}"
 		alt="${text}"
 		class="chromeext-emojiflags"
 		style="
