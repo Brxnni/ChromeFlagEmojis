@@ -23,7 +23,8 @@ async function readStorage(){
 }
 
 function updatePreview(){
-	previewImg.setAttribute("style", `width: ${sizeInput.value} !important; margin: ${marginInput.value} !important;`);
+	previewImg.style.setProperty("width", `${sizeInput.value}`, "important");
+	previewImg.style.setProperty("margin", `${marginInput.value}`, "important");
 	previewImg.setAttribute("src", `https://em-content.zobj.net/thumbs/120/${styleInput.value}/${urlNums[styleInput.value]}/flag-germany_1f1e9-1f1ea.png`);
 }
 

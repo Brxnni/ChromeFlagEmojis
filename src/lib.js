@@ -274,13 +274,3 @@ let regexes = [
 		/[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g
 ];
 globalThis.regexGeneralFlag = new RegExp(regexes.map(r => `(${r.source})`).join("|"), "g");
-
-globalThis.urlNumbers = {
-	"apple": "354",
-	"google": "350",
-	"samsung": "349",
-	"whatsapp": "352",
-	"twitter": "322",
-	"facebook": "355",
-	"openmoji": "338"
-};
