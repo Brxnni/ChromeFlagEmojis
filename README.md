@@ -20,8 +20,6 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 ## TODO
 
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
-* Deactivate the conversion in textfields (extension currently breaks the github code editor for example)
-  * Could be detected by listeningn events and seeing if target is TEXTAREA or something like that -> Put it on the list of elements to ignore
 * Add On/Off button
 * Add offline option
 * Reload images when the first load fails
