@@ -25,6 +25,11 @@
 		],
 		"css": ["content.css"],
 		"matches": ["<all_urls>"]
+	}, {
+		"world": "MAIN",
+		"js": ["inject.js"],
+		"matches": ["<all_urls>"],
+		"run_at": "document_start"
 	}],
 	"background": {
 		"service_worker": "background.js"

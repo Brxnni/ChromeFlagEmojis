@@ -22,5 +22,4 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
 * Add On/Off button
 * Add offline option
-* Reload images when the first load fails
 * Add other subdivions? There are a couple that only OpenMoji supports (California, Texas, Bretagne, Catalonia, Basque Country, Quebec, Berlin, Asturias)
