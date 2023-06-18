@@ -36,18 +36,21 @@ function riToImg(text, settings){
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
 }
 
-function replaceNode(node){
-	if (node.textContent.match(globalThis.regexGeneralFlag)){
+function replaceNode(element){
+	if (element.textContent.match(globalThis.regexGeneralFlag)){
 		// Replace content
-		let newText = node.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => riToImg(match, storage) );
+		let newText = element.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => riToImg(match, storage) );
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;
-		node.replaceWith(div);
+		element.replaceWith(div);
 	}
 }
 
 function replaceRIsRecursively(element){
+	if (element.tagName === "TEXTAREA") return;
+	if (element.isContentEditable) return;
+
 	if (element.nodeType === Node.TEXT_NODE) replaceNode(element);
 
 	for (let node of element.childNodes) {
