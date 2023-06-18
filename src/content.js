@@ -19,9 +19,8 @@ function riToImg(text, settings){
 	// If flag is not supported, return original text so nothing changes
 	if (flagName === undefined) return text;
 
-	let imgSrc;
 	let {style, size, margin} = settings;
-	imgSrc = `https://em-content.zobj.net/thumbs/120/${style}/${globalThis.urlNumbers[style]}/flag-${flagName.shortName}_${chars}.png`;
+	let imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
 
 	return `<img
 		src="${imgSrc}"
