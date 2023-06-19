@@ -8,8 +8,20 @@ function utf16ToUtf32Hex(utf16Chars){
 	return final.toString(16);
 }
 
-// Convert Regional Indicator Chars to inline HTML of an <img>.
-function riToImg(text, settings){
+function localFileExists(filePath) {
+	return new Promise((resolve, reject) => {
+		fetch(filePath)
+			.then(response => {
+				resolve(response.ok);
+			})
+			.catch(error => {
+				reject(error);
+			});
+	});
+}
+
+// Convert Unicode to inline HTML of an <img>.
+function unicodeToImg(text){
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
 	let charPairs = text.match(/.{1,2}/g);
 	charPairs = charPairs.map(utf16ToUtf32Hex);
@@ -19,8 +31,16 @@ function riToImg(text, settings){
 	// If flag is not supported, return original text so nothing changes
 	if (flagName === undefined) return text;
 
-	let {style, size, margin} = settings;
+	let {style, size, margin} = storage;
 	let imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
+
+	// If file is not supported by the selected style, don't do anything again
+	// try {
+	// 	let exists = await localFileExists(imgSrc);
+	// 	if (!exists) {
+	// 		return text;
+	// 	}
+	// } catch (e) {}
 
 	return `<img
 		src="${imgSrc}"
@@ -37,9 +57,12 @@ function riToImg(text, settings){
 }
 
 function replaceNode(element){
-	if (element.textContent.match(globalThis.regexGeneralFlag)){
+	let matches = element.textContent.match(globalThis.regexGeneralFlag);
+	if (matches){
 		// Replace content
-		let newText = element.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => riToImg(match, storage) );
+		// TODO: Find a way to use replaceAll with a async function (then enable the safe check thats commented above)
+		let newText = element.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => unicodeToImg(match) );
+		// let newText = replaceAsync(element.textContent, globalThis.regexGeneralFlag, unicodeToImg)
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;

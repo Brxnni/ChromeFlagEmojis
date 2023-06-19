@@ -261,7 +261,16 @@ globalThis.flagNames = {
 
 	"1f3f4-e0067-e0062-e0065-e006e-e0067-e007f": "England",
 	"1f3f4-e0067-e0062-e0073-e0063-e0074-e007f": "Scotland",
-	"1f3f4-e0067-e0062-e0077-e006c-e0073-e007f": "Wales"
+	"1f3f4-e0067-e0062-e0077-e006c-e0073-e007f": "Wales",
+	"1f3f4-e0064-e0065-e0062-e0079-e007f": "Bavaria",
+	"1f3f4-e0064-e0065-e0062-e0065-e007f": "Berlin",
+	"1f3f4-e0065-e0073-e0061-e0073-e007f": "Asturias",
+	"1f3f4-e0065-e0073-e0070-e0076-e007f": "Basque Country",
+	"1f3f4-e0065-e0073-e0063-e0074-e007f": "Catalonia",
+	"1f3f4-e0066-e0072-e0062-e0072-e0065-e007f": "Bretagne",
+	"1f3f4-e0063-e0061-e0071-e0063-e007f": "Quebec",
+	"1f3f4-e0075-e0073-e0063-e0061-e007f": "California",
+	"1f3f4-e0075-e0073-e0074-e0078-e007f": "Texas"
 };
 
 // Combine them all into one regex for faster comparison
