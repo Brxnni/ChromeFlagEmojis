@@ -21,3 +21,4 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
 * Add On/Off button
+* Fix errors when flag is not supported by a certain style (some code for this is already right there => figure out replaceAll with async replacer function)
