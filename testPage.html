@@ -12,18 +12,18 @@
 			"🏴󠁧󠁢󠁥󠁮󠁧󠁿","🏴󠁧󠁢󠁳󠁣󠁴󠁿","🏴󠁧󠁢󠁷󠁬󠁳󠁿"
 		]
 
-		let urlNumbers = {
-			"apple": "354",
-			"google": "350",
-			"samsung": "349",
-			"whatsapp": "352",
-			"twitter": "322",
-			"facebook": "355",
-			"openmoji": "338"
-		};
+		let styles = [
+			"apple",
+			"google",
+			"samsung",
+			"whatsapp",
+			"twitter",
+			"facebook",
+			"openmoji"
+		];
 		let urls = {};
-		for (let [key, val] of Object.entries(urlNumbers)){
-			urls[key] = `https://em-content.zobj.net/thumbs/120/${key}/${val}/flag-mongolia_1f1f2-1f1f3.png`;
+		for (let style of styles){
+			urls[style] = `./src/flags/${style}/1f1f2-1f1f3.png`
 		}
 
 		document.addEventListener("DOMContentLoaded", async function(){
