@@ -46,21 +46,21 @@ function unicodeToImg(text){
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
 }
 
-function replaceNode(element){
-	let matches = element.textContent.match(globalThis.regexGeneralFlag);
+function replaceNode(node){
+	let matches = node.textContent.match(globalThis.regexGeneralFlag);
 	if (matches){
 		// Replace content
 		// TODO: Find a way to use replaceAll with a async function (then enable the safe check thats commented above)
-		let newText = element.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => unicodeToImg(match) );
+		let newText = node.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => unicodeToImg(match) );
 		// let newText = replaceAsync(element.textContent, globalThis.regexGeneralFlag, unicodeToImg)
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;
-		element.replaceWith(div);
+		node.replaceWith(div);
 	}
 }
 
-function replaceRIsRecursively(element){
+function replacesNodeTree(element){
 	if (element.tagName === "TEXTAREA") return;
 	if (element.isContentEditable) return;
 
@@ -69,7 +69,7 @@ function replaceRIsRecursively(element){
 	for (let node of element.childNodes) {
 		switch (node.nodeType) {
 			case Node.ELEMENT_NODE || Node.DOCUMENT_NODE:
-				replaceRIsRecursively(node);
+				replacesNodeTree(node);
 				break;
 
 			case Node.TEXT_NODE:
@@ -88,7 +88,7 @@ let storage;
 	// This is false when viewing something thats not html
 	if (document.body !== null){
 		// Replace entire body to begin with (for static pages)
-		replaceRIsRecursively(document.body);
+		replacesNodeTree(document.body);
 	
 		// If any node in the page ever changes, search everything in that node again
 		let obv = new MutationObserver((mutations) => {
@@ -98,7 +98,7 @@ let storage;
 					mutation.type === "characterData"
 				){
 					mutation.addedNodes.forEach((node) => {
-						replaceRIsRecursively(node);
+						replacesNodeTree(node);
 					})
 				}
 			});

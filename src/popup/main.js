@@ -4,16 +4,6 @@ let styleInput = document.getElementById("style");
 
 let previewImg = document.getElementById("preview");
 
-const urlNums = {
-	"apple": "354",
-	"google": "350",
-	"samsung": "349",
-	"whatsapp": "352",
-	"twitter": "322",
-	"facebook": "355",
-	"openmoji": "338"
-}
-
 async function readStorage(){
 	let storage = await chrome.storage.sync.get();
 
