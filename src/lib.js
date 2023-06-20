@@ -303,3 +303,16 @@ globalThis.utf16ToUtf32Hex = function (utf16Chars){
 	let final = ((highSurrogate - 0xD800) * 0x400) + (lowSurrogate - 0xDC00) + 0x10000;
 	return final.toString(16);
 }
+
+globalThis.replaceAllAsync = async function (string, regex, matchFunction){
+	let promises = [];
+
+	string.replace(regex, match => {
+		promises.push(matchFunction(match));
+	});
+
+	return await Promise.all(promises)
+		.then((results) => {
+			return string.replace(regex, () => results.shift());
+		});
+}

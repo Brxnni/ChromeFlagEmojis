@@ -1,17 +1,5 @@
-function localFileExists(filePath) {
-	return new Promise((resolve, reject) => {
-		fetch(filePath)
-			.then(response => {
-				resolve(response.ok);
-			})
-			.catch(error => {
-				reject(error);
-			});
-	});
-}
-
 // Convert Unicode to inline HTML of an <img>.
-function unicodeToImg(text){
+async function unicodeToImg(text){
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
 	let charPairs = text.match(/.{1,2}/g);
 	charPairs = charPairs.map(globalThis.utf16ToUtf32Hex);
@@ -25,12 +13,11 @@ function unicodeToImg(text){
 	let imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
 
 	// If file is not supported by the selected style, don't do anything again
-	// try {
-	// 	let exists = await localFileExists(imgSrc);
-	// 	if (!exists) {
-	// 		return text;
-	// 	}
-	// } catch (e) {}
+	try {
+		await fetch(imgSrc);
+	} catch (e) {
+		return text;
+	}
 
 	return `<img
 		src="${imgSrc}"
@@ -46,13 +33,14 @@ function unicodeToImg(text){
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
 }
 
-function replaceNode(node){
+async function replaceNode(node){
 	let matches = node.textContent.match(globalThis.regexGeneralFlag);
 	if (matches){
 		// Replace content
-		// TODO: Find a way to use replaceAll with a async function (then enable the safe check thats commented above)
-		let newText = node.textContent.replaceAll(globalThis.regexGeneralFlag, (match) => unicodeToImg(match) );
-		// let newText = replaceAsync(element.textContent, globalThis.regexGeneralFlag, unicodeToImg)
+		let newText = await globalThis.replaceAllAsync(node.textContent, globalThis.regexGeneralFlag, unicodeToImg);
+		// Without this, a text node would replace itself with its original content, causing a mutation,
+		// Causing it to check the node again => infinite loop
+		if (newText === node.textContent) return;
 		// Replacing innerHTML of node won't work, so you have to make a wrapper element
 		let div = document.createElement("div");
 		div.innerHTML = newText;
