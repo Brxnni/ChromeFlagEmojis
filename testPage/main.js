@@ -1,17 +1,8 @@
-function utf32HexToUtf16(hex32){
-	hex32 = parseInt(hex32, 16);
-
-	let highSurrogate = Math.floor((hex32 - 0x10000) / 0x400) + 0xD800;
-	let lowSurrogate = ((hex32 - 0x10000) % 0x400) + 0xDC00;
-
-	return String.fromCharCode(highSurrogate) + String.fromCharCode(lowSurrogate);
-}
-
 let allSpan;
 let updateSpan;
 let styleSpan;
 
-let countryCodes = Object.keys(globalThis.flagNames).map(code => code.split("-").map(c => utf32HexToUtf16(c)).join(""));
+let countryCodes = Object.keys(globalThis.flagNames).map(code => code.split("-").map(c => globalThis.utf32HexToUtf16(c)).join(""));
 
 let styles = [
 	"apple",

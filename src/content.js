@@ -1,13 +1,3 @@
-function utf16ToUtf32Hex(utf16Chars){
-	// Takes to characters in Utf16 and converts them to the hex representation in Utf32
-	let highSurrogate = (utf16Chars.charCodeAt(0));
-	let lowSurrogate = (utf16Chars.charCodeAt(1));
-
-	// https://en.wikipedia.org/wiki/UTF-16
-	let final = ((highSurrogate - 0xD800) * 0x400) + (lowSurrogate - 0xDC00) + 0x10000;
-	return final.toString(16);
-}
-
 function localFileExists(filePath) {
 	return new Promise((resolve, reject) => {
 		fetch(filePath)
@@ -24,7 +14,7 @@ function localFileExists(filePath) {
 function unicodeToImg(text){
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
 	let charPairs = text.match(/.{1,2}/g);
-	charPairs = charPairs.map(utf16ToUtf32Hex);
+	charPairs = charPairs.map(globalThis.utf16ToUtf32Hex);
 	let chars = charPairs.join("-");
 	let flagName = globalThis.flagNames[chars];
 

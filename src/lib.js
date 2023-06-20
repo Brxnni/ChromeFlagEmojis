@@ -276,10 +276,30 @@ globalThis.flagNames = {
 // Combine them all into one regex for faster comparison
 let regexes = [
 	// Flags consisting of two regional indicators (a-z)
-	//    [ * tag latin chars   ]
+	//    [   tag latin chars   ]
 		/([\uD83C][\uDDE6-\uDDFF]){2}/g,
 	// Subdivision flags
-	//   [  black flag  ] [ * tag latin chars   ]  [  cancel tag  ]
+	//   [  black flag  ] [   tag latin chars   ]  [  cancel tag  ]
 		/[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g
 ];
 globalThis.regexGeneralFlag = new RegExp(regexes.map(r => `(${r.source})`).join("|"), "g");
+
+// ChatGPT actually did something correct for once
+globalThis.utf32HexToUtf16 = function (hex32){
+	hex32 = parseInt(hex32, 16);
+
+	let highSurrogate = Math.floor((hex32 - 0x10000) / 0x400) + 0xD800;
+	let lowSurrogate = ((hex32 - 0x10000) % 0x400) + 0xDC00;
+
+	return String.fromCharCode(highSurrogate) + String.fromCharCode(lowSurrogate);
+}
+
+globalThis.utf16ToUtf32Hex = function (utf16Chars){
+	// Takes to characters in Utf16 and converts them to the hex representation in Utf32
+	let highSurrogate = (utf16Chars.charCodeAt(0));
+	let lowSurrogate = (utf16Chars.charCodeAt(1));
+
+	// https://en.wikipedia.org/wiki/UTF-16
+	let final = ((highSurrogate - 0xD800) * 0x400) + (lowSurrogate - 0xDC00) + 0x10000;
+	return final.toString(16);
+}
