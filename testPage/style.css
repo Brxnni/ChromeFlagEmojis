@@ -1,0 +1,20 @@
+body {
+    font-size: 2.25rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #d0d0d0;
+    padding: 1rem;
+}
+
+p {
+    margin: 15px 0;
+}
+
+h3 {
+    margin: 45px 0 0 0;
+}
+
+textarea,
+button {
+    font-size: 2rem;
+    font: inherit;
+}
