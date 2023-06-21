@@ -5,6 +5,11 @@ body {
     padding: 1rem;
 }
 
+/* It annoys me that when I click the "New Emoji" button, the page shifts down by ~2px for ~2ms. So what? */
+p:has(span#update) {
+	height: 1.2em;
+}
+
 p {
     margin: 15px 0;
 }
