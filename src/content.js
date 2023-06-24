@@ -11,18 +11,22 @@ async function unicodeToImg(text){
 
 	let {style, size, margin} = storage;
 	let imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
+	let imgSrcFailed = chrome.runtime.getURL(`flags/${style}/unknown.png`);
+
+	let title = `Flag of ${flagName}`;
 
 	// If file is not supported by the selected style, don't do anything again
 	try {
 		await fetch(imgSrc);
 	} catch (e) {
-		return text;
+		imgSrc = imgSrcFailed;
+		title += ` (Unsupported by ${globalThis.cfe_styles[style]})`;
 	}
 
 	return `<img
 		src="${imgSrc}"
 		onerror="reloadImg(this)"
-		title="Flag of ${flagName}"
+		title="Flag of ${title}"
 		alt="${text}"
 		class="chromeext-emojiflags"
 		style="

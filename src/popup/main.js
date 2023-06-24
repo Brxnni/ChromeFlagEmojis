@@ -2,7 +2,8 @@ let sizeInput = document.getElementById("size");
 let marginInput = document.getElementById("margin");
 let styleInput = document.getElementById("style");
 
-let previewImg = document.getElementById("preview");
+let previewImgDE = document.getElementById("preview-germany");
+let previewImgUnknown = document.getElementById("preview-unknown");
 
 async function readStorage(){
 	let storage = await chrome.storage.sync.get();
@@ -22,9 +23,13 @@ function addStyleSelects(){
 }
 
 function updatePreview(){
-	previewImg.style.setProperty("width", `${sizeInput.value}`, "important");
-	previewImg.style.setProperty("margin", `${marginInput.value}`, "important");
-	previewImg.setAttribute("src", `./../flags/${styleInput.value}/1f1e9-1f1ea.png`);
+	previewImgDE.style.setProperty("width", `${sizeInput.value}`, "important");
+	previewImgDE.style.setProperty("margin", `${marginInput.value}`, "important");
+	previewImgUnknown.style.setProperty("width", `${sizeInput.value}`, "important");
+	previewImgUnknown.style.setProperty("margin", `${marginInput.value}`, "important");
+
+	previewImgDE.setAttribute("src", `./../flags/${styleInput.value}/1f1e9-1f1ea.png`);
+	previewImgUnknown.setAttribute("src", `./../flags/${styleInput.value}/unknown.png`)
 }
 
 sizeInput.addEventListener("input", () => {

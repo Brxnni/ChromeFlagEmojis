@@ -275,15 +275,15 @@ globalThis.cfe_flagNames = {
 
 globalThis.cfe_styles = {
 	"apple": "Apple",
-	"google": "Google",
-	"samsung": "Samsung",
-	"whatsapp": "WhatsApp",
-	"twitter": "Twitter",
 	"facebook": "Facebook",
-	"openmoji": "OpenMoji",
-	"skype": "Skype",
+	"google": "Google",
+	"joypixels": "JoyPixels",
 	"lg": "LG",
-	"joypixels": "JoyPixels"
+	"openmoji": "OpenMoji",
+	"samsung": "Samsung",
+	"skype": "Skype",
+	"twitter": "Twitter",
+	"whatsapp": "WhatsApp"
 };
 
 // Combine them all into one regex for faster comparison
