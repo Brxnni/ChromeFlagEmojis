@@ -1,6 +1,8 @@
 # ChromeFlagEmojis
 
-Chrome Extension that replaces Unicode Regional Indicators with images of actual flags. (Note: Which Flags are included has nothing to do with any personal political opinions and is defined only by what the Unicode consortium recommends for [General Interchange](https://unicode.org/emoji/charts/emoji-zwj-sequences.html))
+Chrome Extension that replaces Unicode Regional Indicators with images of actual flags. All [Unicode Regional Indicators](https://en.wikipedia.org/wiki/Regional_indicator_symbol?) are included and the following subdivisions:
+
+England, Scotland and Wales (🇬🇧), Bavaria and Berlin (🇩🇪), Asturias, Basque Country and Catalonia (🇪🇸), Bretagne (🇫🇷), Quebec (🇨🇦), and California and Texas (🇺🇸).
 
 ## Overview
 
