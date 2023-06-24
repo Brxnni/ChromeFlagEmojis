@@ -20,13 +20,13 @@ async function unicodeToImg(text){
 		await fetch(imgSrc);
 	} catch (e) {
 		imgSrc = imgSrcFailed;
-		title += ` (Unsupported by ${globalThis.cfe_styles[style]})`;
+		title += ` (Not supported by ${globalThis.cfe_styles[style]})`;
 	}
 
 	return `<img
 		src="${imgSrc}"
 		onerror="reloadImg(this)"
-		title="Flag of ${title}"
+		title="${title}"
 		alt="${text}"
 		class="chromeext-emojiflags"
 		style="
