@@ -2,9 +2,9 @@
 async function unicodeToImg(text){
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
 	let charPairs = text.match(/.{1,2}/g);
-	charPairs = charPairs.map(globalThis.utf16ToUtf32Hex);
+	charPairs = charPairs.map(globalThis.cfe_utf16ToUtf32Hex);
 	let chars = charPairs.join("-");
-	let flagName = globalThis.flagNames[chars];
+	let flagName = globalThis.cfe_flagNames[chars];
 
 	// If flag is not supported, return original text so nothing changes
 	if (flagName === undefined) return text;
@@ -34,10 +34,10 @@ async function unicodeToImg(text){
 }
 
 async function replaceNode(node){
-	let matches = node.textContent.match(globalThis.regexGeneralFlag);
+	let matches = node.textContent.match(globalThis.cfe_regexGeneralFlag);
 	if (matches){
 		// Replace content
-		let newText = await globalThis.replaceAllAsync(node.textContent, globalThis.regexGeneralFlag, unicodeToImg);
+		let newText = await globalThis.cfe_replaceAllAsync(node.textContent, globalThis.cfe_regexGeneralFlag, unicodeToImg);
 		// Without this, a text node would replace itself with its original content, causing a mutation,
 		// Causing it to check the node again => infinite loop
 		if (newText === node.textContent) return;

@@ -13,7 +13,7 @@ async function readStorage(){
 }
 
 function addStyleSelects(){
-	for (let [shortName, fullName] of Object.entries(globalThis.styles)){
+	for (let [shortName, fullName] of Object.entries(globalThis.cfe_styles)){
 		let option = document.createElement("option");
 		option.value = shortName;
 		option.innerHTML = fullName;

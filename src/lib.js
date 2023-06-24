@@ -1,5 +1,5 @@
 // Abusing global namespace
-globalThis.flagNames = {
+globalThis.cfe_flagNames = {
 	"1f1e6-1f1e8": "Ascension Island",
 	"1f1e6-1f1e9": "Andorra",
 	"1f1e6-1f1ea": "United Arab Emirates",
@@ -273,7 +273,7 @@ globalThis.flagNames = {
 	"1f3f4-e0075-e0073-e0074-e0078-e007f": "Texas"
 };
 
-globalThis.styles = {
+globalThis.cfe_styles = {
 	"apple": "Apple",
 	"google": "Google",
 	"samsung": "Samsung",
@@ -295,10 +295,10 @@ let regexes = [
 	//   [  black flag  ] [   tag latin chars   ]  [  cancel tag  ]
 		/[\uD83C][\uDFF4]([\uDB40][\uDC61-\uDC7A])+[\uDB40][\uDC7F]/g
 ];
-globalThis.regexGeneralFlag = new RegExp(regexes.map(r => `(${r.source})`).join("|"), "g");
+globalThis.cfe_regexGeneralFlag = new RegExp(regexes.map(r => `(${r.source})`).join("|"), "g");
 
 // ChatGPT actually did something correct for once
-globalThis.utf32HexToUtf16 = function (hex32){
+globalThis.cfe_utf32HexToUtf16 = function (hex32){
 	hex32 = parseInt(hex32, 16);
 
 	let highSurrogate = Math.floor((hex32 - 0x10000) / 0x400) + 0xD800;
@@ -307,7 +307,7 @@ globalThis.utf32HexToUtf16 = function (hex32){
 	return String.fromCharCode(highSurrogate) + String.fromCharCode(lowSurrogate);
 }
 
-globalThis.utf16ToUtf32Hex = function (utf16Chars){
+globalThis.cfe_utf16ToUtf32Hex = function (utf16Chars){
 	// Takes to characters in Utf16 and converts them to the hex representation in Utf32
 	let highSurrogate = (utf16Chars.charCodeAt(0));
 	let lowSurrogate = (utf16Chars.charCodeAt(1));
@@ -317,7 +317,7 @@ globalThis.utf16ToUtf32Hex = function (utf16Chars){
 	return final.toString(16);
 }
 
-globalThis.replaceAllAsync = async function (string, regex, matchFunction){
+globalThis.cfe_replaceAllAsync = async function (string, regex, matchFunction){
 	let promises = [];
 
 	string.replace(regex, match => {

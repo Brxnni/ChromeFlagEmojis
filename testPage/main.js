@@ -2,7 +2,7 @@ let allSpan;
 let updateSpan;
 let styleSpan;
 
-let countryCodes = Object.keys(globalThis.flagNames).map(code => code.split("-").map(c => globalThis.utf32HexToUtf16(c)).join(""));
+let countryCodes = Object.keys(globalThis.cfe_flagNames).map(code => code.split("-").map(c => globalThis.cfe_utf32HexToUtf16(c)).join(""));
 
 function newRandomEmoji(){
 	updateSpan.innerHTML = countryCodes[Math.floor(Math.random() * countryCodes.length)];
@@ -13,7 +13,7 @@ allSpan = document.getElementById("all");
 styleSpan = document.getElementById("style");
 
 allSpan.innerHTML = countryCodes.join(" ");
-for (let [styleShortName, styleFullName] of Object.entries(globalThis.styles)){
+for (let [styleShortName, styleFullName] of Object.entries(globalThis.cfe_styles)){
 	let url = `./../src/flags/${styleShortName}/1f1f2-1f1f3.png`;
 	styleSpan.innerHTML += `<img class="chromeext-emojiflags" src="${url}" title="${styleFullName}"/>`
 }

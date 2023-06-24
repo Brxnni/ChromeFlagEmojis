@@ -24,4 +24,4 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
 * Extension still affects GitHub code editor for some reason
 * Add On/Off button
-* Rename globalThis properties so it's obvious they are from the chrome extension
+* When changing settings, it should apply to the page without having to reload it
