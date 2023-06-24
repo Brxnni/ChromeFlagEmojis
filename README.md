@@ -25,4 +25,3 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 * Extension still affects GitHub code editor for some reason
 * Add On/Off button
 * When changing settings, it should apply to the page without having to reload it
-* Add "unknown" flags for remaining styles
