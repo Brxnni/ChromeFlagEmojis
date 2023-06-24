@@ -12,6 +12,15 @@ async function readStorage(){
 	styleInput.value = storage.style;
 }
 
+function addStyleSelects(){
+	for (let [shortName, fullName] of Object.entries(globalThis.styles)){
+		let option = document.createElement("option");
+		option.value = shortName;
+		option.innerHTML = fullName;
+		styleInput.appendChild(option);
+	}
+}
+
 function updatePreview(){
 	previewImg.style.setProperty("width", `${sizeInput.value}`, "important");
 	previewImg.style.setProperty("margin", `${marginInput.value}`, "important");
@@ -37,6 +46,7 @@ styleInput.addEventListener("input", () => {
 });
 
 (async function(){
+	addStyleSelects();
 	await readStorage();
 	updatePreview();
 })();

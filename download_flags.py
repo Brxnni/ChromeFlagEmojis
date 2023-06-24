@@ -270,13 +270,9 @@ flagNames = {
 	"1f3f4-e0067-e0062-e0077-e006c-e0073-e007f": { "fullName": "Wales", "shortName": "wales" }
 };
 urlNumbers = {
-	"apple": "354",
-	"google": "350",
-	"samsung": "349",
-	"whatsapp": "352",
-	"twitter": "322",
-	"facebook": "355",
-	"openmoji": "338"
+	"skype": "289",
+	"lg": "307",
+	"joypixels": "340"
 };
 
 # Using this instead of creating a new request everytime is like a 85x speedup
@@ -293,7 +289,15 @@ for style, styleNum in urlNumbers.items():
 	# Download every flag
 	for chars, obj in flagNames.items():
 
-		print(style, obj["fullName"])
-		request = session.get(url % (style, styleNum, obj["shortName"], chars))
-		with open(os.path.join(flag_path, style, f"{chars}.png"), "wb") as file:
-		    file.write(request.content)
+
+		if style != "emojidex": req_url = url % (style, styleNum, obj["shortName"], chars)
+		else: 					req_url = url % (style, styleNum, "for-"+obj["shortName"], chars)
+
+		print(style, obj["fullName"], req_url)
+
+		request = session.get(req_url)
+
+		if "Access Denied" not in str(request.content):
+			print("download!")
+			with open(os.path.join(flag_path, style, f"{chars}.png"), "wb") as file:
+				file.write(request.content)

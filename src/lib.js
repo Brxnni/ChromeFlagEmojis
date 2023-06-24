@@ -273,6 +273,19 @@ globalThis.flagNames = {
 	"1f3f4-e0075-e0073-e0074-e0078-e007f": "Texas"
 };
 
+globalThis.styles = {
+	"apple": "Apple",
+	"google": "Google",
+	"samsung": "Samsung",
+	"whatsapp": "WhatsApp",
+	"twitter": "Twitter",
+	"facebook": "Facebook",
+	"openmoji": "OpenMoji",
+	"skype": "Skype",
+	"lg": "LG",
+	"joypixels": "JoyPixels"
+};
+
 // Combine them all into one regex for faster comparison
 let regexes = [
 	// Flags consisting of two regional indicators (a-z)
