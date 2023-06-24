@@ -22,4 +22,5 @@ Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
 ## TODO
 
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
+* Extension still affects GitHub code editor for some reason
 * Add On/Off button
