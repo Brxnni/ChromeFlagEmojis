@@ -2,7 +2,7 @@
 
 Chrome Extension that replaces Unicode Regional Indicators with images of actual flags. All [Unicode Regional Indicators](https://en.wikipedia.org/wiki/Regional_indicator_symbol?) are included and the following subdivisions:
 
-England, Scotland and Wales (🇬🇧), Bavaria and Berlin (🇩🇪), Asturias, Basque Country and Catalonia (🇪🇸), Bretagne (🇫🇷), Quebec (🇨🇦), and California and Texas (🇺🇸).
+England, Scotland and Wales (), Bavaria and Berlin (), Asturias, Basque Country and Catalonia (), Bretagne (), Quebec (), and California and Texas ().
 
 ## Overview
 
@@ -14,10 +14,13 @@ Instead of this:
 
 ![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/750ec6fa-377c-4922-b38a-ca71ee6a7b28)
 
-Style Size and Position of Flags can be changed.
+Style Size and Position of Flags can be changed:
 
-Styles available: Apple/Google/Samsung/WhatsApp/Twitter/Facebook/OpenMoji
-![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/c61de214-4209-46df-9327-951bcf60f147)
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/2966c73f-ba85-424c-be32-8ff6be9fd32d)
+
+Styles available:
+
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/0427332d-ab73-4d99-9ec1-c135018f135f)
 
 ## TODO
 
