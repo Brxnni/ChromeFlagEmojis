@@ -3,6 +3,7 @@ img.chromeext-emojiflags {
 	display: inline !important;
 	vertical-align: -15% !important;
 	-webkit-user-drag: none !important;
+	cursor: text !important;
 }
 
 div:has(> img.chromeext-emojiflags){

@@ -59,6 +59,8 @@ function replaceNodeTree(element){
 	// If any parent has contenteditable="true" set, ignore it
 	let parents = globalThis.cfe_getAllParentNodes(element)
 	if (parents.some(v => v.isContentEditable)) return;
+	// This will ignore stuff like e.g. GitHub's payload data
+	if (parents.some(v => v.tagName === "SCRIPT")) return;
 
 	if (element.nodeType === Node.TEXT_NODE) replaceNode(element);
 
