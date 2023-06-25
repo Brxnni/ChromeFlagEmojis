@@ -329,3 +329,12 @@ globalThis.cfe_replaceAllAsync = async function (string, regex, matchFunction){
 			return string.replace(regex, () => results.shift());
 		});
 }
+
+globalThis.cfe_getAllParentNodes = function (node){
+	let parents = [];
+	while (node.parentNode){
+		parents.unshift(node.parentNode);
+		node = node.parentNode;
+	}
+	return parents;
+}

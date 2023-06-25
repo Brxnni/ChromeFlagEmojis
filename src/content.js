@@ -52,16 +52,20 @@ async function replaceNode(node){
 	}
 }
 
-function replacesNodeTree(element){
+function replaceNodeTree(element){
 	if (element.tagName === "TEXTAREA") return;
 	if (element.isContentEditable) return;
+
+	// If any parent has contenteditable="true" set, ignore it
+	let parents = globalThis.cfe_getAllParentNodes(element)
+	if (parents.some(v => v.isContentEditable)) return;
 
 	if (element.nodeType === Node.TEXT_NODE) replaceNode(element);
 
 	for (let node of element.childNodes) {
 		switch (node.nodeType) {
 			case Node.ELEMENT_NODE || Node.DOCUMENT_NODE:
-				replacesNodeTree(node);
+				replaceNodeTree(node);
 				break;
 
 			case Node.TEXT_NODE:
@@ -80,7 +84,7 @@ let storage;
 	// This is false when viewing something thats not html
 	if (document.body !== null){
 		// Replace entire body to begin with (for static pages)
-		replacesNodeTree(document.body);
+		replaceNodeTree(document.body);
 	
 		// If any node in the page ever changes, search everything in that node again
 		let obv = new MutationObserver((mutations) => {
@@ -90,7 +94,7 @@ let storage;
 					mutation.type === "characterData"
 				){
 					mutation.addedNodes.forEach((node) => {
-						replacesNodeTree(node);
+						replaceNodeTree(node);
 					})
 				}
 			});
