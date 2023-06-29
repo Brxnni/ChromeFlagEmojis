@@ -1,5 +1,6 @@
 {
 	"manifest_version": 3,
+	
 	"name": "FlagEmojis",
 	"description": "Replaces Unicode Regional Indicators with images of actual flags.",
 	"homepage_url": "https://github.com/Brxnni/ChromeFlagEmojis",
@@ -30,9 +31,9 @@
 	"content_scripts": [{
 		"js": [
 			"lib.js",
-			"content.js"
+			"main.js"
 		],
-		"css": ["content.css"],
+		"css": ["inject.css"],
 		"matches": ["<all_urls>"],
 		"run_at": "document_end"
 	}, {
@@ -41,7 +42,8 @@
 		"matches": ["<all_urls>"],
 		"run_at": "document_start"
 	}],
+
 	"background": {
-		"service_worker": "background.js"
+		"service_worker": "initialize.js"
 	}
 }
