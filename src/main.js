@@ -10,17 +10,17 @@ async function unicodeToImg(text){
 	if (flagName === undefined) return text;
 
 	let {style, size, margin} = storage;
-	let imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
-	let imgSrcFailed = chrome.runtime.getURL(`flags/${style}/unknown.png`);
 
-	let title = `Flag of ${flagName}`;
-
-	// If file is not supported by the selected style, don't do anything again
-	try {
-		await fetch(imgSrc);
-	} catch (e) {
-		imgSrc = imgSrcFailed;
-		title += ` (Not supported by ${globalThis.cfe_styles[style]})`;
+	let imgSrc;
+	let title;
+	
+	if (globalThis.cfe_supportedFlags[style].includes(chars)){
+		imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
+		title = `Flag of ${flagName}`;
+	// If file is not supported by the selected style, use the `unknown` image variant
+	} else {
+		imgSrc = chrome.runtime.getURL(`flags/${style}/unknown.png`);
+		title = `Flag of ${flagName} (Not supported by ${globalThis.cfe_styles[style]})`;
 	}
 
 	return `<img
@@ -59,7 +59,7 @@ function replaceNodeTree(element){
 	// If any parent has contenteditable="true" set, ignore it
 	let parents = globalThis.cfe_getAllParentNodes(element)
 	if (parents.some(v => v.isContentEditable)) return;
-	// This will ignore stuff like e.g. GitHub's payload data
+	// This will ignore stuff like GitHub's payload data
 	if (parents.some(v => v.tagName === "SCRIPT")) return;
 
 	if (element.nodeType === Node.TEXT_NODE) replaceNode(element);

@@ -25,5 +25,3 @@ Styles available:
 ## TODO
 
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
-* Add On/Off button
-* When changing settings, it should apply to the page without having to reload it
