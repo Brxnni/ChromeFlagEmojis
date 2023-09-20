@@ -14,11 +14,12 @@ async function unicodeToImg(text){
 	let title;
 	
 	if (globalThis.cfe_supportedFlags[style].includes(utf32Chars)){
-		imgSrc = chrome.runtime.getURL(`flags/${style}/${utf32Chars}.png`);
+		let fileType = globalThis.cfe_fileTypes[style];
+		imgSrc = chrome.runtime.getURL(`flags/${style}/${utf32Chars}.${fileType}`);
 		title = `Flag of ${flagName}`;
 	// If file is not supported by the selected style, use the `unknown` image variant
 	} else {
-		imgSrc = chrome.runtime.getURL(`flags/${style}/unknown.png`);
+		imgSrc = chrome.runtime.getURL(`flags/unknown/${style}.png`);
 		let styleName = globalThis.cfe_styles[style];
 		title = `Flag of ${flagName} (Not supported by ${styleName})`;
 	}

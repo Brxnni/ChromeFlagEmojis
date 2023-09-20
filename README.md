@@ -22,6 +22,15 @@ Styles available:
 
 ![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/0427332d-ab73-4d99-9ec1-c135018f135f)
 
+## Image sources
+
+|Platform|Src|
+|---|---|
+|Twitter| [Twitter Images SVG CDN](https://abs-0.twimg.com/emoji/v2/svg/1f1e9-1f1ea.svg) |
+|OpenMoji| [OpenMoji Color SVG CDN](https://openmoji.org/data/color/svg/1F1E9-1F1EA.svg) |
+|Joypixels| [JoyPixels 8.0 128x128 PNG CDN](https://cdn.joypixels.com/emoji/joypixels/8.0/png/unicode/128/1f1e9-1f1ea.png) (not paying for the svgs)|
+|All others| Emojipedia |
+
 ## TODO
 
 * Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)

@@ -14,10 +14,10 @@ styleSpan = document.getElementById("style");
 
 allSpan.innerHTML = countryCodes.join(" ");
 for (let [styleShortName, styleFullName] of Object.entries(globalThis.cfe_styles)){
-	let url = `./../src/flags/${styleShortName}`;
+	let url = `./../src/`;
+	let fileType = globalThis.cfe_fileTypes[styleShortName];
 	styleSpan.innerHTML += `${styleFullName}: `
-	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/1f1f2-1f1f3.png" title="${styleFullName}"/> `
-	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/unknown.png" title="${styleFullName} (Unknown variation)"/><br/>`
+	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/flags/${styleShortName}/1f1f2-1f1f3.${fileType}" title="${styleFullName}"/> `
 }
 
 newRandomEmoji();

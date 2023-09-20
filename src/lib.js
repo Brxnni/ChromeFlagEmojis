@@ -309,6 +309,19 @@ globalThis.cfe_styles = {
 	"whatsapp": "WhatsApp"
 };
 
+globalThis.cfe_fileTypes = {
+	"apple":		"png",
+	"facebook":		"png",
+	"google":		"png",
+	"joypixels":	"png",
+	"lg":			"png",
+	"openmoji":		"svg",
+	"samsung":		"png",
+	"skype":		"png",
+	"twitter":		"svg",
+	"whatsapp":		"png"
+}
+
 // Combine them all into one regex for faster comparison
 let regexes = [
 	// Flags consisting of two regional indicators (a-z)

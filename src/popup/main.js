@@ -28,8 +28,9 @@ function updatePreview(){
 	previewImgUnknown.style.setProperty("width", `${sizeInput.value}`, "important");
 	previewImgUnknown.style.setProperty("margin", `${marginInput.value}`, "important");
 
-	previewImgDE.setAttribute("src", `./../flags/${styleInput.value}/1f1e9-1f1ea.png`);
-	previewImgUnknown.setAttribute("src", `./../flags/${styleInput.value}/unknown.png`)
+	let fileType = globalThis.cfe_fileTypes[styleInput.value];
+	previewImgDE.setAttribute("src", `./../flags/${styleInput.value}/1f1e9-1f1ea.${fileType}`);
+	previewImgUnknown.setAttribute("src", `./../flags/unknown/${styleInput.value}.png`)
 }
 
 sizeInput.addEventListener("input", () => {
