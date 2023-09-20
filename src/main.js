@@ -1,10 +1,9 @@
 // Convert Unicode to inline HTML of an <img>.
 async function unicodeToImg(text){
 	// Js uses UTF16 because it is stupid, so convert the chars to pairs UTF32
-	let charPairs = text.match(/.{1,2}/g);
-	charPairs = charPairs.map(globalThis.cfe_utf16ToUtf32Hex);
-	let chars = charPairs.join("-");
-	let flagName = globalThis.cfe_flagNames[chars];
+	let utf16CharPairs = text.match(/.{1,2}/g).map(globalThis.cfe_utf16ToUtf32Hex);
+	let utf32Chars = utf16CharPairs.join("-");
+	let flagName = globalThis.cfe_flagNames[utf32Chars];
 
 	// If flag is not supported, return original text so nothing changes
 	if (flagName === undefined) return text;
@@ -14,13 +13,14 @@ async function unicodeToImg(text){
 	let imgSrc;
 	let title;
 	
-	if (globalThis.cfe_supportedFlags[style].includes(chars)){
-		imgSrc = chrome.runtime.getURL(`flags/${style}/${chars}.png`);
+	if (globalThis.cfe_supportedFlags[style].includes(utf32Chars)){
+		imgSrc = chrome.runtime.getURL(`flags/${style}/${utf32Chars}.png`);
 		title = `Flag of ${flagName}`;
 	// If file is not supported by the selected style, use the `unknown` image variant
 	} else {
 		imgSrc = chrome.runtime.getURL(`flags/${style}/unknown.png`);
-		title = `Flag of ${flagName} (Not supported by ${globalThis.cfe_styles[style]})`;
+		let styleName = globalThis.cfe_styles[style];
+		title = `Flag of ${flagName} (Not supported by ${styleName})`;
 	}
 
 	return `<img
@@ -53,15 +53,8 @@ async function replaceNode(node){
 }
 
 function replaceNodeTree(element){
-	if (element.tagName === "TEXTAREA") return;
-	if (element.isContentEditable) return;
 
-	// If any parent has contenteditable="true" set, ignore it
-	let parents = globalThis.cfe_getAllParentNodes(element)
-	if (parents.some(v => v.isContentEditable)) return;
-	// This will ignore stuff like GitHub's payload data
-	if (parents.some(v => v.tagName === "SCRIPT")) return;
-
+	if (cfe_ignoreNode(element)) return;
 	if (element.nodeType === Node.TEXT_NODE) replaceNode(element);
 
 	for (let node of element.childNodes) {

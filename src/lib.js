@@ -353,11 +353,23 @@ globalThis.cfe_replaceAllAsync = async function (string, regex, matchFunction){
 		});
 }
 
-globalThis.cfe_getAllParentNodes = function (node){
-	let parents = [];
+function getAllParentNodes(node){
+	let parents = [node];
 	while (node.parentNode){
-		parents.unshift(node.parentNode);
+		parents.push(node.parentNode);
 		node = node.parentNode;
 	}
 	return parents;
+}
+
+let ignoredTagNames = ["SCRIPT", "STYLE", "TITLE", "TEXTAREA", "META", "BASE", "HEAD", "LINK"];
+
+globalThis.cfe_ignoreNode = function (node){
+	let parents = getAllParentNodes(node);
+	return parents.some(v => (
+		// Ignore non-text tags
+		ignoredTagNames.includes(v.tagName) ||
+		// If content is in any way editable, don't add images (it will break the editor)
+		v.isContentEditable
+	));
 }
