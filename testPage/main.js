@@ -17,7 +17,8 @@ for (let [styleShortName, styleFullName] of Object.entries(globalThis.cfe_styles
 	let url = `./../src/`;
 	let fileType = globalThis.cfe_fileTypes[styleShortName];
 	styleSpan.innerHTML += `${styleFullName}: `
-	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/flags/${styleShortName}/1f1f2-1f1f3.${fileType}" title="${styleFullName}"/> `
+	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/flags/${styleShortName}/1f1f2-1f1f3.${fileType}" title="${styleFullName}"/> `;
+	styleSpan.innerHTML += `<img class="chromeext-emojiflags" style="height: 1.5em !important;" src="${url}/unknown/${styleShortName}.png" title="${styleFullName} (Unknown variation)"/><br/>`;
 }
 
 newRandomEmoji();
