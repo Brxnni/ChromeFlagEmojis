@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<h3>Update Test</h3>
+	<h3>DOM Update Listener Test</h3>
 	<p>hi! im from <span id="update"></span>.</p>
 	<button onclick="newRandomEmoji()">New Random Emoji pls</button>
 
@@ -15,22 +15,30 @@
 	<p><span id="all"></span></p>
 
 	<h3>Style comparison</h3>
+	<table id="style">
+		<thead><tr>
+			<th>Style</th>
+			<th>Regular</th>
+			<th>Unknown</th>
+		</tr></thead>
+	</table>
 	<p><span id="style"></span></p>
 
 	<h3>Editor test</h3>
-	<textarea cols="20" rows="5">Cool text test&#10;🇦🇨</textarea>
+	<textarea cols="30" rows="6">Cool text test&#10;🇦🇨&#10;If this shows a flag then something isn't working</textarea>
 
 	<h3>Flag Collection</h3>
 	<p>Brexit geezas: 🇬🇧 🇦🇨 🇦🇮 🇦🇺 🇧🇲 🇨🇰 🇩🇬 🇫🇰 🇬🇸 🇭🇲 🇮🇴 🇰🇾 🇲🇸 🇳🇺 🇳🇿 🇵🇳 🇸🇭 🇹🇦 🇹🇨 🇹🇻 🇻🇬</p>
 	<p>Plus/Cross fans: 🇦🇽 🇧🇮 🇧🇻 🇩🇰 🇩🇴 🇫🇮 🇫🇴 🇬🇪 🇬🇬 🇯🇲 🇳🇴 🇸🇪 🇸🇯 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🏴󠁧󠁢󠁳󠁣󠁴󠁿 🏴󠁥󠁳󠁰󠁶󠁿</p>
 	<p>Chad stripe enjoyers: 🇦🇲 🇦🇹 🇧🇪 🇧🇬 🇧🇼 🇨🇬 🇨🇮 🇨🇴 🇨🇵 🇩🇪 🇪🇪 🇫🇷 🇬🇦 🇬🇲 🇬🇳 🇭🇺 🇮🇩 🇮🇪 🇮🇹 🇱🇹 🇱🇺 🇱🇻 🇲🇨 🇲🇫 🇲🇱 🇲🇺 🇳🇬 🇳🇱 🇵🇪 🇵🇱 🇷🇴 🇷🇺 🇸🇱 🇹🇩 🇹🇭 🇹🇹 🇹🇿 🇺🇦 🇾🇪</p>
 	<p>Left Triangle appreciaters: 🇧🇸 🇨🇺 🇨🇿 🇩🇯 🇬🇶 🇬🇾 🇰🇲 🇲🇿 🇵🇷 🇵🇸 🇸🇩 🇸🇸 🇸🇹 🇸🇽 🇻🇺 🇿🇦</p>
+	<p>Crescent users: 🇨🇨 🇩🇿 🇪🇭 🇰🇲 🇱🇾 🇲🇷 🇲🇻 🇲🇾 🇵🇰 🇸🇬 🇹🇷</p>
 	<p>Nepal: 🇳🇵</p>
 	<br/>
 	<p>Red Gang: 🇦🇱 🇦🇹 🇧🇭 🇧🇲 🇧🇻 🇧🇾 🇨🇦 🇨🇭 🇨🇳 🇩🇰 🇬🇱 🇭🇰 🇮🇲 🇰🇬 🇰🇵 🇱🇻 🇲🇦 🇲🇪 🇲🇳 🇳🇴 🇵🇪 🇵🇫 🇶🇦 🇸🇯 🇹🇱 🇹🇳 🇹🇴 🇹🇷 🇹🇹 🇹🇼 🇻🇳 🇼🇫 🇼🇸</p>
 	<p>Yellow Gang: 🇪🇨 🇳🇺</p>
 	<p>Green Gang: 🇧🇩 🇧🇷 🇨🇨 🇲🇷 🇸🇦 🇹🇲 🇿🇲</p>
 	<p>Blue Gang: 🇦🇨 🇦🇮 🇦🇺 🇦🇼 🇦🇽 🇧🇦 🇧🇧 🇧🇼 🇧🇿 🇨🇰 🇨🇻 🇨🇼 🇪🇺 🇫🇯 🇫🇰 🇫🇲 🇬🇷 🇬🇸 🇬🇺 🇭🇲 🇭🇳 🇮🇸 🇰🇭 🇰🇾 🇰🇿 🇱🇦 🇱🇨 🇲🇭 🇲🇵 🇲🇶 🇲🇸 🇳🇮 🇳🇷 🇳🇿 🇵🇳 🇸🇪 🇸🇭 🇸🇻 🇹🇦 🇹🇨 🇹🇫 🇹🇰 🇻🇬 🇽🇰 🏴󠁧󠁢󠁳󠁣󠁴󠁿 🏴󠁥󠁳󠁡󠁳󠁿 🏴󠁣󠁡󠁱󠁣󠁿</p>
-	<p>White Gang: 🇧🇱 🇨🇾 🇫🇮 🇫🇴 🇬🇪 🇬🇮 🇮🇱 🇯🇪 🇯🇵 🇰🇷 🇱🇧 🇻🇮 🇾🇹 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🏴󠁤󠁥󠁢󠁥󠁿 🏴󠁵󠁳󠁣󠁡󠁿</p>
+	<p>White Gang: 🇧🇱 🇨🇾 🇫🇮 🇫🇴 🇬🇪 🇬🇮 🇮🇱 🇯🇪 🇯🇵 🇰🇷 🇻🇮 🇾🇹 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🏴󠁤󠁥󠁢󠁥󠁿 🏴󠁵󠁳󠁣󠁡󠁿</p>
 	<p>Black Gang: 🇬🇵</p>
 </body>

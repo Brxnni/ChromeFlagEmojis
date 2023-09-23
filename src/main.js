@@ -34,7 +34,7 @@ async function unicodeToImg(text){
 			height: ${size} !important;
 			margin: ${margin} !important;
 		"
-	/>`.replaceAll(/[\t\n]+/g, " ");
+	/>&ZeroWidthSpace;`.replaceAll(/[\t\n]+/g, " ");
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
 }
 

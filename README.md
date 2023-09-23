@@ -30,7 +30,3 @@ Styles available:
 |OpenMoji| [OpenMoji Color SVG CDN](https://openmoji.org/data/color/svg/1F1E9-1F1EA.svg) |
 |Joypixels| [JoyPixels 8.0 128x128 PNG CDN](https://cdn.joypixels.com/emoji/joypixels/8.0/png/unicode/128/1f1e9-1f1ea.png) (not paying for the svgs)|
 |All others| Emojipedia |
-
-## TODO
-
-* Fix bug where sometimes a comment that has flags from the previous page you were on is mixed with the first comment on the current video (????)
