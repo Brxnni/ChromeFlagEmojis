@@ -20,7 +20,7 @@ Style Size and Position of Flags can be changed:
 
 Styles available:
 
-![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/0427332d-ab73-4d99-9ec1-c135018f135f)
+![image](https://github.com/Brxnni/ChromeFlagEmojis/assets/72916383/a99d96cc-1c07-4f9c-a535-439545b8cf31)
 
 ## Image sources
 
