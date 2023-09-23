@@ -34,11 +34,13 @@ async function unicodeToImg(text){
 			height: ${size} !important;
 			margin: ${margin} !important;
 		"
-	/>&ZeroWidthSpace;`.replaceAll(/[\t\n]+/g, " ");
+	/>`.replaceAll(/[\t\n]+/g, " ");
 	// Replace tabs and newlines that are caused by me making this more readable instead of having it be a one-liner
 }
 
 async function replaceNode(node){
+
+	
 	let matches = node.textContent.match(globalThis.cfe_regexGeneralFlag);
 	if (matches){
 		// Replace content
@@ -46,10 +48,9 @@ async function replaceNode(node){
 		// Without this, a text node would replace itself with its original content, causing a mutation,
 		// Causing it to check the node again => infinite loop
 		if (newText === node.textContent) return;
-		// Replacing innerHTML of node won't work, so you have to make a wrapper element
-		let div = document.createElement("div");
-		div.innerHTML = newText;
-		node.replaceWith(div);
+		// This node will be found another way through the span/div/... that contains it
+		if (!node.parentNode) return;
+		node.parentNode.innerHTML = newText;
 	}
 }
 
